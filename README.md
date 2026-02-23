@@ -1,77 +1,36 @@
-# React + TypeScript + Vite
+# Consumer Facing Web - Interview Project
+
+## Setup Instructions
+
+1. Ensure you have Node.js installed on your machine.
+2. Clone the repository and navigate to the project directory.
+3. Install the dependencies by running:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open your browser and navigate to `http://localhost:5173` (or the URL provided in the terminal).
+
+## How to run tests
+
+This project uses Vitest and React Testing Library for unit testing.
+To run the test suite, use the following command:
+
+```bash
+npm run test
+```
+
+## Architectural Decisions
+
+- **Framework & Build Tool:** Built with React, TypeScript, and Vite for a fast development experience and optimized production builds.
+- **Separation of Concerns:** The application is structured logically into `components` (UI), `hooks` (state management/business logic), and `services` (API integrations) to maintain modularity and testability.
+- **Data Fetching:** Axios is used in a dedicated service layer to handle external API requests, making it easy to mock during tests (e.g., `fetchUsersApi`).
+- **Styling:** Tailwind CSS is utilized alongside `tailwind-merge` and `clsx` to provide a utility-first, dynamic styling approach that keeps components visually consistent and responsive without requiring complex custom CSS.
+- **Testing:** The tests are set up with Vitest and use Mock Service Worker or direct mock overrides to ensure components like `UsersPage` can be rendered and asserted against independently of the live API.
 
 ## AI Usage Disclosure
 
-**Note:** An AI assistant was used to generate the boilerplate and structure of the `UserCard` component (`src/components/UserCard.tsx`). The assistant helped implement the discriminated variants (compact and detailed), generate the Tailwind CSS classes for styling and responsiveness, and structure the component with semantic HTML and accessibility in mind.
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+An AI assistant was used to generate the boilerplate and structure of the `UserCard` component (`src/components/UserCard.tsx`). The assistant helped implement the discriminated variants (compact and detailed), generate the Tailwind CSS classes for styling and responsiveness, and structure the component with semantic HTML and accessibility in mind. AI was also used to extract and configure global `vitest` types and help perform minor refactoring of mock data during test setup.
